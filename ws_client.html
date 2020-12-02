@@ -8,7 +8,8 @@
 </head>
 
 <body>
-
+    <div id="content_list">
+    </div>
 </body>
 <script>
     var ws = new WebSocket("ws://127.0.0.1:9527/ws");
@@ -16,8 +17,13 @@
         ws.send("hello world")
     };
     ws.onmessage = function (eventMessage) {
-        console.log(eventMessage.data)
+        // console.log(eventMessage.data)
+        var p=document.createElement("p");
+        
+        document.getElementById("content_list").appendChild(p);
+        p.innerHTML=eventMessage.data;
     }
+
 </script>
 
 </html>
