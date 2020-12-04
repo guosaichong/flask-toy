@@ -1,4 +1,4 @@
-from flask import Flask,request
+from flask import Flask,request,render_template
 from geventwebsocket.handler import WebSocketHandler
 from geventwebsocket.server import WSGIServer
 from geventwebsocket.websocket import WebSocket
@@ -22,6 +22,9 @@ def ws():
             i.send(msg)
     return "200"
 
+@app.route("/")
+def index():
+    return render_template("ws_client.html")
 
 if __name__ == "__main__":
     http_serv = WSGIServer(("0.0.0.0", 9527), app,
