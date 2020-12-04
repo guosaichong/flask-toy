@@ -9,26 +9,32 @@
 
 <body>
     <h1>欢迎登录聊天室</h1>
-    <form action="" method="post">
+    
         <p>请输入用户名：</p>
         <input type="text" name="username" id="username">
-        <input type="submit" value="登录">
-    </form>
+        <button id="createWS">登录</button>
+    
     <div id="content_list">
     </div>
 </body>
 <script>
-    var ws = new WebSocket("ws://127.0.0.1:9527/ws");
-    ws.onopen = function () {
-        ws.send("hello world")
-    };
+    var ws=null;
+    document.getElementById("createWS").onclick=function(){
+        var username=document.getElementById("username").value;
+        ws = new WebSocket("ws://127.0.0.1:9527/ws/"+username);
+        ws.onopen = function () {
+        alert("登录成功！")
+        };
     ws.onmessage = function (eventMessage) {
-        // console.log(eventMessage.data)
-        var p=document.createElement("p");
-        
-        document.getElementById("content_list").appendChild(p);
-        p.innerHTML=eventMessage.data;
+    // console.log(eventMessage.data)
+    var p=document.createElement("p");
+    
+    document.getElementById("content_list").appendChild(p);
+    p.innerHTML=eventMessage.data;
     }
+    }
+    
+    
 
 </script>
 
