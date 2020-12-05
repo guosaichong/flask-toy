@@ -2,6 +2,7 @@ from flask import Flask, request, render_template,redirect
 from geventwebsocket.handler import WebSocketHandler
 from geventwebsocket.server import WSGIServer
 from geventwebsocket.websocket import WebSocket
+import json
 
 app = Flask(__name__)
 
@@ -16,17 +17,29 @@ def ws(username):
     socket_dict[username]=sock
     print(socket_dict)
     while True:
-        msg = sock.receive()
-
-        print(msg)
+        try:
+            msg = sock.receive()
+            print(type(msg),msg)
+            
+        except:
+            break
+        print(socket_dict.values())
+        for so in socket_dict.values():
+            if so == sock:
+                continue
+            try:
+                so.send(msg)
+            except:
+                continue
+        # print(msg)
 
     return "200"
 
 
 @app.route("/",methods=["GET"])
 def index():
-    if request.method=="GET":
-        return render_template("ws_client.html")
+    
+    return render_template("ws_client.html")
 
 
 if __name__ == "__main__":

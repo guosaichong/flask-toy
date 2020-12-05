@@ -1,0 +1,380 @@
+
+.service-chat-input-area {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0
+}
+
+
+
+.service-chat-more::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 73.22999999999999% 89.78%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-more .text,.service-chat-more::before {
+    display: inline-block;
+    vertical-align: middle
+}
+
+.service-chat-processing {
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 2;
+    padding: 0 20px 0 30px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #F5F8FB
+}
+
+.service-chat-processing .text {
+    font-size: 12px;
+    color: #7C878E
+}
+
+.service-chat-processing .text:after {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    animation: ellipsis 2s infinite;
+    content: "....."
+}
+
+@keyframes ellipsis {
+    from {
+        width: 2px
+    }
+
+    to {
+        width: 20px
+    }
+}
+
+.service-chat-prompt-list {
+    box-sizing: border-box;
+    padding: 12px 20px 12px 30px;
+    position: relative;
+    border-bottom: solid 1px #DFE2E6;
+    font-size: 0;
+    background-color: #F5F8FB
+}
+
+.service-chat-prompt-label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 12px
+}
+
+.service-chat-prompt-label:last-child {
+    box-sizing: border-box;
+    margin-right: 0;
+    padding-top: 4px;
+    float: right;
+    z-index: 5;
+    position: relative
+}
+
+.service-chat-prompt-label.flow-label {
+    position: absolute;
+    margin-right: 0;
+    right: 55px;
+    bottom: 12px;
+    width: 24px;
+    height: 32px;
+    z-index: 5
+}
+
+.service-chat-prompt-label .flow-btn-link {
+    display: block;
+    width: 24px;
+    height: 32px
+}
+
+.service-chat-prompt-label .e-bubble-trigger .e-bubble-bottom {
+    z-index: 99
+}
+
+.service-chat-prompt-label .e-bubble-inner {
+    border: none;
+    box-shadow: 0 4px 10px 1px #C1C6C8
+}
+
+.service-chat-prompt-label .e-bubble-inner:after,.service-chat-prompt-label .e-bubble-inner:before {
+    margin-top: 0
+}
+
+.service-chat-prompt-label button {
+    box-sizing: border-box;
+    padding: 4px 12px;
+    background-color: #FFF;
+    border-radius: 14px;
+    font-size: 12px;
+    color: #006EFF;
+    outline: 0;
+    border: none;
+    cursor: pointer
+}
+
+.service-chat-prompt-label [class*=icon-16-] {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle
+}
+
+.service-chat-prompt-label .icon-16-refresh {
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 78.79% 71.50999999999999%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-prompt-label .icon-16-select {
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 87.88% 71.50999999999999%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-textarea-area {
+    box-sizing: border-box;
+    padding: 16px 0 20px 30px;
+    position: relative
+}
+
+.service-chat-textarea-tool {
+    margin-bottom: 16px;
+    font-size: 0
+}
+
+.service-chat-textarea-tool [class*=icon-16-] {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 18px;
+    cursor: pointer
+}
+
+.service-chat-textarea-tool .icon-16-expression {
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 27.779999999999998% 89.78%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-textarea-tool .icon-16-expression:active {
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 36.870000000000005% 89.78%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-textarea-tool .icon-16-picture {
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 9.6% 99.46000000000001%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-textarea-tool .icon-16-picture:active {
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 69.69999999999999% 71.50999999999999%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-textarea-tool .icon-16-file {
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 45.96% 89.78%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-textarea-tool .icon-16-file:active {
+    background-image: url(sprite/smarty-service-20209271515.svg);
+    ;background-position: 55.05% 89.78%;
+    background-size: 1337.5% 1262.5%;
+    ;background-repeat: no-repeat
+}
+
+.service-chat-textarea-image-loading {
+    position: relative;
+    width: 200px;
+    height: 252px;
+    overflow: hidden;
+    background-color: #E1E8F0
+}
+
+.service-chat-textarea-image-loading::after {
+    display: block;
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-size: 16px 16px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-image: url(./img/svg/icon-16-loading-grey.png);
+    -moz-animation: spin .9s infinite linear;
+    -webkit-animation: spin .9s infinite linear;
+    animation: spin .9s infinite linear
+}
+
+.service-expression-list .e-bubble {
+    width: 420px;
+    bottom: 18px;
+    margin-left: -33px
+}
+
+.service-expression-list .e-bubble-bottom .e-bubble-inner:before {
+    border-top-color: rgba(221,221,221,.2)
+}
+
+.service-expression-list .e-bubble .e-bubble-inner:after,.service-expression-list .e-bubble .e-bubble-inner:before {
+    left: 21px;
+    border-width: 8px
+}
+
+.service-expression-list .e-bubble-inner {
+    border: none;
+    padding: 0;
+    box-shadow: 0 1px 4px 0 #DFE2E6
+}
+
+.service-expression-list .ex-item-box {
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 150px
+}
+
+.service-expression-list .ex-item {
+    padding: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0
+}
+
+.service-expression-list .ex-item:hover {
+    background-color: #ECEFF2
+}
+
+.service-expression-list .ex-item img {
+    width: 28px;
+    height: 28px
+}
+
+.service-chat-smart-tips {
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 10;
+    padding: 12px 30px;
+    left: 0;
+    right: 0;
+    background-color: #F5F8FB;
+    border: 1px solid #DFE2E6;
+    box-shadow: 0 -1px 2px 0 rgba(223,226,230,.8)
+}
+
+.service-chat-smart-tips .hd-title {
+    font-size: 12px;
+    color: #A1ACB3;
+    margin-bottom: 8px
+}
+
+.service-chat-smart-tips .text-list li {
+    font-size: 12px;
+    color: #000;
+    line-height: 22px;
+    cursor: pointer
+}
+
+.service-chat-smart-tips .text-list li span {
+    color: #006EFF
+}
+
+.service-chat-textarea-text {
+    font-size: 0
+}
+
+.service-chat-textarea-text .textarea {
+    width: 100%;
+    overflow-y: auto;
+    min-height: 100px;
+    max-height: 100px;
+    border: none;
+    outline: 0;
+    resize: none;
+    line-height: 22px;
+    padding-right: 20px;
+    background-color: transparent;
+    box-sizing: border-box;
+    font-size: 12px;
+    color: #000
+}
+
+.service-chat-textarea-text .textarea img {
+    display: block;
+    max-width: 100%;
+    height: auto
+}
+
+.service-chat-textarea-text .textarea[contentEditable=true]:empty:not(:focus):before {
+    content: attr(data-text);
+    color: #A1ACB3
+}
+
+.service-chat-textarea-text textarea::-webkit-input-placeholder {
+    color: #A1ACB3
+}
+
+.service-chat-textarea-text textarea::-webkit-scrollbar {
+    width: 6px
+}
+
+.service-chat-textarea-text textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #E5E5E5
+}
+
+.service-chat-textarea-text textarea::-webkit-scrollbar-corner {
+    background-color: transparent
+}
+
+.service-chat-textarea-btn .e-bubble {
+    right: -21px;
+    top: 63px;
+    display: none
+}
+
+.service-chat-textarea-btn .e-bubble .e-bubble-inner {
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 4px 10px 1px #C1C6C8
+}
+
+.service-chat-textarea-btn button {
+    width: 64px;
+    height: 32px;
+    font-size: 12px;
+    color: #fff;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    background-color: #006EFF;
+    position: absolute;
+    right: 20px;
+    bottom: 20px
+}

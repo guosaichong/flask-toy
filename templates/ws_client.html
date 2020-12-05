@@ -4,37 +4,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/chat.css">
+    <script src="../static/jquery-3.3.1.min.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <h1>欢迎登录聊天室</h1>
-    
+    <h1 id="h1">欢迎登录聊天室</h1>
+    <div id="loginInfo">
         <p>请输入用户名：</p>
         <input type="text" name="username" id="username">
         <button id="createWS">登录</button>
-    
+    </div>
     <div id="content_list">
     </div>
+
+    <div class="service-chat-input-area">
+        <div class="service-chat-textarea-area">
+            <div class="service-chat-textarea-text">
+                <div class="textarea" data-text="请输入您想说的话" contenteditable="true" id="textarea"></div>
+            </div>
+        </div>
+        <div class="service-chat-textarea-btn"><button id="send">发送</button></div>
+    </div>
+
+
 </body>
 <script>
-    var ws=null;
-    document.getElementById("createWS").onclick=function(){
-        var username=document.getElementById("username").value;
-        ws = new WebSocket("ws://127.0.0.1:9527/ws/"+username);
+    var ws = null;
+
+    document.getElementById("createWS").onclick = function () {
+        var username = document.getElementById("username").value;
+        ws = new WebSocket("ws://127.0.0.1:9527/ws/" + username);
         ws.onopen = function () {
-        alert("登录成功！")
+            alert("登录成功！");
+            document.body.removeChild(document.getElementById("loginInfo"));
+            var span = document.createElement("span");
+            span.id = "span";
+            span.innerHTML = username;
+            document.getElementById("h1").appendChild(span)
         };
-    ws.onmessage = function (eventMessage) {
-    // console.log(eventMessage.data)
-    var p=document.createElement("p");
-    
-    document.getElementById("content_list").appendChild(p);
-    p.innerHTML=eventMessage.data;
-    }
-    }
-    
-    
+
+        ws.onmessage = function (eventMessage) {
+            console.log(eventMessage)
+            var p = document.createElement("p");
+
+            document.getElementById("content_list").appendChild(p);
+            p.innerHTML = JSON.parse(eventMessage.data)["sender"] + ":" + JSON.parse(eventMessage.data)["text"];
+        }
+    };
+    document.getElementById("send").onclick = function () {
+        var p = document.createElement("p");
+
+        var text = document.getElementById("textarea").innerText;
+        document.getElementById("content_list").appendChild(p);
+        p.style.textAlign = "right";
+        p.innerHTML = text;
+        document.getElementById("textarea").innerText = "";
+        msg = {
+            "sender": document.getElementById("span").innerText,
+            "text": text
+        }
+        ws.send(JSON.stringify(msg))
+    };
+
+
+
 
 </script>
 
